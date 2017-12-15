@@ -18,7 +18,7 @@ Arthur Coutinho Santos
 ```
 
 
-# Licensa
+# Licença
 
 ```
 Apache 2.0
