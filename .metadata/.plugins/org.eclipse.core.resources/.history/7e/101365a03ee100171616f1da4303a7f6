@@ -1,0 +1,9 @@
+body{
+	
+	background-image: url(../imgs/home_fundo.jpg);
+
+}
+
+.home_titulo, home_curriculo, home_curriculo_texto{
+	color: white;
+}

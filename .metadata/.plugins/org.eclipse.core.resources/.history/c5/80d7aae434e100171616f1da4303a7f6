@@ -1,0 +1,5 @@
+body{
+	
+	background-image: url("\static\imgs\home_fundo.jpg");
+
+}
