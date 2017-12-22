@@ -1,0 +1,8 @@
+package com.portfolio.entity;
+
+import javax.persistence.Entity;
+
+
+public class Sobre {
+
+}

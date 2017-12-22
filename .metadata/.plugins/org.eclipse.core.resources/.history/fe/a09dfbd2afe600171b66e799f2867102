@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Home - Administrador</title>
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+	rel="stylesheet" />
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a data-th-href="@{/index}">Home -
+						Visitant Side</a></li>
+				<li class="active"><a data-th-href="@{/index}">Home -
+						Visitant Side</a></li>
+				<li><a data-th-href="@{/admin/sobre}">Sobre</a></li>
+				<li><a href="#">Currículo</a></li>
+				<li><a href="#">Projetos</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container"></div>
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
