@@ -32,12 +32,13 @@
 			<div
 				class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 
-				<form method="post" novalidate>
+				<form method="post" data-th-action="@{/admin/sobre}" data-th-object="${sobre}" novalidate>
 
 					<label style="color: red;" for="basic-url">* Texto:</label>
-					<div class="input-group input_">
+					<div class="input-group input_" data-th-classappend="${#fields.hasErrors('descricao')} ? has-error">
 						<span class="input-group-addon" id="sizing-addon2"> <span
-							class="glyphicon glyphicon-user"></span></span> <textarea id="descricao"
+							class="glyphicon glyphicon-user"></span></span> 
+							<textarea id="descricao" data-th-field="*{descricao}"
 							class="form-control" aria-describedby="sizing-addon2"
 							required></textarea>
 					</div>

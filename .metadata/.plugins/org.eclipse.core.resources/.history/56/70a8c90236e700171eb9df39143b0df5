@@ -1,0 +1,13 @@
+package com.portfolio.entity;
+
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+public class Experiencia_Atividades {
+
+	@NotBlank(message = "A descricao é obrigatória!")
+	@Size(max = 500, message = "O título deve conter no máximo 500 caractéres!")
+	private String Atividade;
+	
+}

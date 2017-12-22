@@ -1,0 +1,27 @@
+package com.portfolio.entity;
+
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+public class Sobre {
+
+	@NotBlank(message = "A descricao é obrigatória!")
+	@Size(max = 500, message = "O título deve conter no máximo 500 caractéres!")
+	private String descricao;
+
+	public Sobre() {
+
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(@NotBlank @Size(max = 500) String descricao) {
+		this.descricao = descricao;
+	}
+	
+	
+
+}

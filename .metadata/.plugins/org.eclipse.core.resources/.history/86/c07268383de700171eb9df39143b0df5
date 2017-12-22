@@ -1,0 +1,7 @@
+package com.portfolio.repository;
+
+import com.portfolio.service.Curso_ComplementarService;
+
+public class Curso_ComplementarServiceImpl implements Curso_ComplementarService{
+
+}

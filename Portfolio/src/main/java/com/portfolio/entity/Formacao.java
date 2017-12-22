@@ -1,23 +1,68 @@
 package com.portfolio.entity;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-public class Formacao {
+@SuppressWarnings("serial")
+@Entity
+@Table(name = "TB_FORMACAO")
+public class Formacao implements Serializable {
+	
+	@javax.persistence.Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_FORMACAO")
+	private Long Id;
 
-	NotBlank(message = "O nome do curso é obrigatório!")
-    @Size(max = 200, message = "O nome do curso deve conter no máximo 200 caractéres!")
+	@NotBlank(message = "O nome do curso Ã© obrigatario!")
+    @Size(max = 200, message = "O nome do curso deve conter no mï¿½ximo 200 caractï¿½res!")
+	@Column(name = "FORMACAO_CURSO", length = 200)
 	private String Curso;
 	
-	NotBlank(message = "O período da formação é obrigatório!")
-    @Size(max = 200, message = "O período deve conter no máximo 200 caractéres!")
+	@NotBlank(message = "O perï¿½odo da formaï¿½ï¿½o ï¿½ obrigatï¿½rio!")
+    @Size(max = 200, message = "O perï¿½odo deve conter no mï¿½ximo 200 caractï¿½res!")
+	@Column(name = "FORMACAO_PERIODO", length = 200)
 	private String Periodo;
 	
-	NotBlank(message = "O tipo da formação é obrigatório!")
-    @Size(max = 1, message = "O tipo da formação deve ser escolhida!")
+	@NotBlank(message = "O tipo da formaï¿½ï¿½o ï¿½ obrigatï¿½rio!")
+    @Size(max = 1, message = "O tipo da formaï¿½ï¿½o deve ser escolhida!")
+	@Column(name = "FORMACAO_TIPO", length = 1)
 	private char Tipo;
 
+	@Size(min = 1, max = 50)
+	@Column(name = "IMAGEM_NOME", length = 50)
+	private String Nome;
+
+	@Size(min = 1, max = 50)
+	@Column(name = "IMAGEM_LEGENDA", length = 50)
+	private String Legenda;
+
+	@Column(name = "IMAGEM_FOTO")
+	private byte[] foto;
+
+	public String getNome() {
+		return Nome;
+	}
+
+	public void setNome(@NotBlank @Size(max = 50) String nome) {
+		Nome = nome;
+	}
+
+	public String getLegenda() {
+		return Legenda;
+	}
+
+	public void setLegenda(@NotBlank @Size(max = 50) String legenda) {
+		Legenda = legenda;
+	}
+	
 	public String getCurso() {
 		return Curso;
 	}

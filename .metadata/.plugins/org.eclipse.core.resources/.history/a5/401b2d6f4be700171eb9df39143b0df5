@@ -1,0 +1,9 @@
+package com.portfolio.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.portfolio.entity.Imagem;
+
+public interface ImagemRepository extends CrudRepository<Imagem, Long> {
+
+}

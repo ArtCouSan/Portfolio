@@ -1,0 +1,59 @@
+package com.portfolio.entity;
+
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+public class Experiencia {
+
+	@NotBlank(message = "A descricao é obrigatória!")
+	@Size(max = 500, message = "O título deve conter no máximo 500 caractéres!")
+	private String Empresa;
+	
+	@NotBlank(message = "A descricao é obrigatória!")
+	@Size(max = 500, message = "O título deve conter no máximo 500 caractéres!")
+	private String Periodo;
+	
+	@NotBlank(message = "A descricao é obrigatória!")
+	@Size(max = 500, message = "O título deve conter no máximo 500 caractéres!")
+	private String Cargo;
+	
+	@NotBlank(message = "A descricao é obrigatória!")
+	@Size(max = 500, message = "O título deve conter no máximo 500 caractéres!")
+	private String DtInicio;
+
+	public String getEmpresa() {
+		return Empresa;
+	}
+
+	public void setEmpresa(String empresa) {
+		Empresa = empresa;
+	}
+
+	public String getPeriodo() {
+		return Periodo;
+	}
+
+	public void setPeriodo(String periodo) {
+		Periodo = periodo;
+	}
+
+	public String getCargo() {
+		return Cargo;
+	}
+
+	public void setCargo(String cargo) {
+		Cargo = cargo;
+	}
+
+	public String getDtInicio() {
+		return DtInicio;
+	}
+
+	public void setDtInicio(String dtInicio) {
+		DtInicio = dtInicio;
+	}
+	
+	
+	
+}

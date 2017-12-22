@@ -1,9 +1,0 @@
-body{
-	
-	background-image: url(../imgs/home_fundo.jpg);
-
-}
-
-.titulo_home{
-	color: white;
-}

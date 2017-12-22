@@ -1,0 +1,10 @@
+spring.thymeleaf.mode=html
+spring.thymeleaf.cache=false
+
+spring.datasource.url=jdbc:postgresql://localhost:3306/Portfolio
+spring.datasource.username=admin
+spring.datasource.password=admin
+spring.jpa.show-sql=true
+spring.jpa.generate-ddl=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.postgresql

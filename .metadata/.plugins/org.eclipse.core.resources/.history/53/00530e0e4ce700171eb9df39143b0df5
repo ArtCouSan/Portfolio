@@ -1,0 +1,40 @@
+package com.portfolio.repository;
+
+import java.util.List;
+
+import com.portfolio.entity.Imagem_PR;
+import com.portfolio.service.ImagemService;
+
+public class Imagem_PRServiceImpl implements ImagemService{
+
+	@Override
+	public List<Imagem_PR> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Imagem_PR obter(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void incluir(Imagem_PR imagem) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void alterar(Imagem_PR imagem) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remover(Long codigoImagem) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

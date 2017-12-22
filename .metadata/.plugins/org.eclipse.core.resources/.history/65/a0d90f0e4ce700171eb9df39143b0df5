@@ -1,0 +1,20 @@
+package com.portfolio.service;
+
+import java.io.Serializable;
+import java.util.List;
+
+import com.portfolio.entity.Imagem_CC;
+
+public interface ImagemService extends Serializable{
+
+	public List<Imagem_CC> listar();
+	
+	public Imagem_CC obter(Long id);
+	
+	public void incluir(Imagem_CC imagem);
+	
+	public void alterar(Imagem_CC imagem);
+	
+	public void remover(Long codigoImagem);
+	
+}

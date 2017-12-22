@@ -1,0 +1,20 @@
+package com.portfolio.service;
+
+import java.io.Serializable;
+import java.util.List;
+
+import com.portfolio.entity.Imagem_FO;
+
+public interface Imagem_FOService extends Serializable{
+
+	public List<Imagem_FO> listar();
+	
+	public Imagem_FO obter(Long id);
+	
+	public void incluir(Imagem_FO imagem);
+	
+	public void alterar(Imagem_FO imagem);
+	
+	public void remover(Long codigoImagem);
+	
+}
