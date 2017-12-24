@@ -4,16 +4,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>Sobre - Administrador</title>
+<title>Atividade - Administrador</title>
 <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
 	rel="stylesheet" />
 <link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
 	rel="stylesheet" />
 <link th:href="@{/css/admin.css}" rel="stylesheet" />
+<link th:href="@{/css/home.css}" rel="stylesheet" />
 </head>
 <body>
 
-	<div th:include="~{adminCabecalho  :: menu_topo}"></div>
+	<div th:include="~{adminCabecalho :: menu_topo}"></div>
 
 	<div class="container">
 
@@ -23,16 +24,17 @@
 			<div
 				class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 
-				<form method="post" data-th-action="@{/admin/sobre}"
-					data-th-object="${sobre}" novalidate>
+				<form method="post"
+					data-th-action="@{/admin/experiencia/atividades}"
+					data-th-object="${experiencia}" novalidate>
 
-					<label for="basic-url">* Texto:</label>
+					<label for="basic-url">* Atividade:</label>
 					<div class="input-group input_"
-						data-th-classappend="${#fields.hasErrors('descricao')} ? has-error">
-						<span class="input-group-addon" id="sizing-addon2"> <span
-							class="glyphicon glyphicon-user"></span></span>
-						<textarea id="descricao" data-th-field="*{descricao}"
-							class="form-control" aria-describedby="sizing-addon2" required></textarea>
+						data-th-classappend="${#fields.hasErrors('Atividade')} ? has-error">
+						<span class="input-group-addon" id="sizing-addon2"><span
+							class="glyphicon glyphicon-user"></span></span> <input id="atividade"
+							data-th-field="*{Atividade}" type="text" class="form-control"
+							aria-describedby="sizing-addon2" required>
 					</div>
 
 					<button type="submit"

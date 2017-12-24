@@ -46,25 +46,31 @@ public class Projetos implements Serializable {
 	@Column(name = "PROJETOS_FRAMEWORK_CLIENT", length = 200)
 	private String Framework_Client;
 
-	@Size(min = 1, max = 50)
-	@Column(name = "IMAGEM_NOME", length = 50)
-	private String Nome;
-
-	@Size(min = 1, max = 50)
+	@Size(min = 1, max = 50, message = "A legenda da foto deve conter no maximo 50 caracteres!")
 	@Column(name = "IMAGEM_LEGENDA", length = 50)
 	private String Legenda;
 
-	@Column(name = "IMAGEM_FOTO")
-	private byte[] foto;
+	@NotBlank(message = "O per�odo de curso � obrigat�rio!")
+	@Column(name = "IMAGEM_FOTO", length = 50)
+	private String foto;
 
-	public String getNome() {
-		return Nome;
+	public String getFoto() {
+		return foto;
 	}
 
-	public void setNome(@NotBlank @Size(max = 50) String nome) {
-		Nome = nome;
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
+
+	
 	public String getLegenda() {
 		return Legenda;
 	}
@@ -112,5 +118,10 @@ public class Projetos implements Serializable {
 	public void setFramework_Client(@NotBlank @Size(max = 200) String framework_Client) {
 		Framework_Client = framework_Client;
 	}
+
+	public Projetos() {
+	}
+	
+	
 
 }

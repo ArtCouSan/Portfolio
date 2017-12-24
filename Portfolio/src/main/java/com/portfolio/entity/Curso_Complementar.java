@@ -1,11 +1,13 @@
 package com.portfolio.entity;
 
 import java.io.Serializable;
+import java.sql.Blob;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -36,23 +38,29 @@ public class Curso_Complementar implements Serializable{
 	@Column(name = "CURSO_COMPLEMENTAR_PERIODO", length = 50)
 	private String Periodo;
 
-	@Size(min = 1, max = 50)
-	@Column(name = "IMAGEM_NOME", length = 50)
-	private String Nome;
-
+	
 	@Size(min = 1, max = 50)
 	@Column(name = "IMAGEM_LEGENDA", length = 50)
 	private String Legenda;
 
-	@Column(name = "IMAGEM_FOTO")
-	private byte[] foto;
-
-	public String getNome() {
-		return Nome;
+	@NotBlank(message = "O per�odo de curso � obrigat�rio!")
+	@Column(name = "IMAGEM_FOTO", length = 50)
+	private String foto;
+	
+	public Long getId() {
+		return Id;
 	}
 
-	public void setNome(@NotBlank @Size(max = 50) String nome) {
-		Nome = nome;
+	public void setId(Long id) {
+		Id = id;
+	}
+	
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 	public String getLegenda() {
@@ -81,8 +89,8 @@ public class Curso_Complementar implements Serializable{
 	public void setPeriodo (@NotBlank @Size(max = 50) String periodo) {
 		Periodo = periodo;
 	}
-	
-	
-	
+
+	public Curso_Complementar() {
+	}
 	
 }

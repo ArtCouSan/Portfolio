@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ControllerAdmin {
 
 	@GetMapping
-	public ModelAndView listar() {
+	public ModelAndView home() {
 		ModelAndView modelAndView = new ModelAndView("admin");
 		return modelAndView;
 	}

@@ -37,22 +37,27 @@ public class Formacao implements Serializable {
 	private char Tipo;
 
 	@Size(min = 1, max = 50)
-	@Column(name = "IMAGEM_NOME", length = 50)
-	private String Nome;
-
-	@Size(min = 1, max = 50)
 	@Column(name = "IMAGEM_LEGENDA", length = 50)
 	private String Legenda;
 
-	@Column(name = "IMAGEM_FOTO")
-	private byte[] foto;
-
-	public String getNome() {
-		return Nome;
+	@NotBlank(message = "O per�odo de curso � obrigat�rio!")
+	@Column(name = "IMAGEM_FOTO", length = 50)
+	private String foto;
+	
+	public String getFoto() {
+		return foto;
 	}
 
-	public void setNome(@NotBlank @Size(max = 50) String nome) {
-		Nome = nome;
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
 	}
 
 	public String getLegenda() {
@@ -80,6 +85,9 @@ public class Formacao implements Serializable {
 	}
 	public void setTipo(@NotBlank @Size(max = 1) char tipo) {
 		Tipo = tipo;
+	}
+
+	public Formacao() {
 	}
 	
 	

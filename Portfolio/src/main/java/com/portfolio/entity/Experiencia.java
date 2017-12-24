@@ -55,11 +55,35 @@ public class Experiencia implements Serializable {
                 @JoinColumn(name = "ID_EXPERIENCIA_ATIVIDADE")
             })
     private Set<Experiencia_Atividade> atividade;
-	
+    
     @Transient
     private Set<Long> idAtividade;
     
-    public Set<Long> getIdAtividades() {
+    public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
+
+	public Set<Experiencia_Atividade> getAtividade() {
+		return atividade;
+	}
+
+	public void setAtividade(Set<Experiencia_Atividade> atividade) {
+		this.atividade = atividade;
+	}
+
+	public Set<Long> getIdAtividade() {
+		return idAtividade;
+	}
+
+	public void setIdAtividade(Set<Long> idAtividade) {
+		this.idAtividade = idAtividade;
+	}
+
+	public Set<Long> getIdAtividades() {
         return idAtividade;
     }
 
@@ -106,6 +130,23 @@ public class Experiencia implements Serializable {
 	public void setDtInicio(@NotBlank @Size(max = 500) String dtInicio) {
 		DtInicio = dtInicio;
 	}
+
+	public Experiencia(Long id, String empresa, String periodo, String cargo, String dtInicio,
+			Set<Experiencia_Atividade> atividade, Set<Long> idAtividade) {
+		super();
+		Id = id;
+		Empresa = empresa;
+		Periodo = periodo;
+		Cargo = cargo;
+		DtInicio = dtInicio;
+		this.atividade = atividade;
+		this.idAtividade = idAtividade;
+	}
+
+	public Experiencia() {
+	}
+	
+	
 	
 	
 	

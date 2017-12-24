@@ -25,6 +25,14 @@ public class Experiencia_Atividade implements Serializable{
 	@Size(max = 500, message = "A atividade deve conter no máximo 500 caractéres!")
 	@Column(name = "EXPERIENCIA_ATIVIDADE_ATIVDADE", length = 500)
 	private String Atividade;
+	
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
 
 	public String getAtividade() {
 		return Atividade;
@@ -33,7 +41,8 @@ public class Experiencia_Atividade implements Serializable{
 	public void setAtividade(@NotBlank @Size(max = 500) String atividade) {
 		Atividade = atividade;
 	}
-	
-	
+
+	public Experiencia_Atividade() {
+	}
 	
 }

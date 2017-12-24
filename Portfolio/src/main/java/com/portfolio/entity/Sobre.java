@@ -29,8 +29,15 @@ public class Sobre implements Serializable{
 	public Sobre() {
 
 	}
-
 	
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
+
 	public String getDescricao() {
 		return descricao;
 	}
