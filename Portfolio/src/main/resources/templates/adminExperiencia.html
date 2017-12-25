@@ -40,7 +40,7 @@
 						data-th-classappend="${#fields.hasErrors('Periodo')} ? has-error">
 						<span class="input-group-addon" id="sizing-addon2"><span
 							class="glyphicon glyphicon-user"></span></span> <input id="periodo"
-							data-th-field="*{Periodo}" type="text" class="form-control"
+							data-th-field="*{Periodo}" type="text" class="periodoExperiencia form-control"
 							aria-describedby="sizing-addon2" required>
 					</div>
 
@@ -58,7 +58,7 @@
 						data-th-classappend="${#fields.hasErrors('DtInicio')} ? has-error">
 						<span class="input-group-addon" id="sizing-addon2"><span
 							class="glyphicon glyphicon-user"></span></span> <input id="dtInicio"
-							data-th-field="*{DtInicio}" type="text" class="form-control"
+							data-th-field="*{DtInicio}" type="text" class="periodoInicio form-control"
 							aria-describedby="sizing-addon2" required>
 					</div>
 
@@ -75,6 +75,8 @@
 
 	</div>
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>s
+	<script th:src="@{/js/jquery.mask.js}"></script>
+	<script th:src="@{/js/mascara.js}"></script>
 </body>
 </html>

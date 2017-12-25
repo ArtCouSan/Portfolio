@@ -1,5 +1,7 @@
 package com.portfolio.repository;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -24,14 +26,25 @@ public class ProjetosServiceImpl implements ProjetosService{
 	
 	@Override
 	public List<Projetos> listar() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Iterable<Projetos> projetos = repository.findAll();
+
+		Iterator<Projetos> it = projetos.iterator();
+
+		List<Projetos> lista = new ArrayList<Projetos>();
+
+		while (it.hasNext()) {
+			Projetos p = (Projetos) it.next();
+			lista.add(p);
+		}
+
+		return lista;
+		
 	}
 
 	@Override
 	public Projetos obter(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findOne(id);
 	}
 
 	@Override

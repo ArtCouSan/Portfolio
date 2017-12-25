@@ -42,7 +42,7 @@ public class ControllerSobre {
 		service.incluir(sobre);
 		
 		attributes.addFlashAttribute("mensagem", "Enviado com sucesso");
-		return new ModelAndView("redirect:/adminSobre");
+		return new ModelAndView("redirect:/admin/sobre");
 
 	}
 

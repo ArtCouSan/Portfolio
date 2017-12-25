@@ -1,5 +1,7 @@
 package com.portfolio.repository;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -14,42 +16,52 @@ import com.portfolio.service.Curso_ComplementarService;
 
 @SuppressWarnings("serial")
 @Repository
-public class Curso_ComplementarServiceImpl implements Curso_ComplementarService{
+public class Curso_ComplementarServiceImpl implements Curso_ComplementarService {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Autowired
 	private Curso_ComplementarRepository repository;
-	
+
 	@Override
 	public List<Curso_Complementar> listar() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Iterable<Curso_Complementar> cursos = repository.findAll();
+
+		Iterator<Curso_Complementar> it = cursos.iterator();
+
+		List<Curso_Complementar> lista = new ArrayList<Curso_Complementar>();
+
+		while (it.hasNext()) {
+			Curso_Complementar c = (Curso_Complementar) it.next();
+			lista.add(c);
+		}
+
+		return lista;
 	}
 
 	@Override
 	public Curso_Complementar obter(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findOne(id);
 	}
 
 	@Override
 	@Transactional
 	public void incluir(Curso_Complementar curso) {
-		entityManager.persist(curso);	
+		entityManager.persist(curso);
 	}
 
 	@Override
 	public void alterar(Curso_Complementar curso) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void remover(Long codigoCurso_Complementar) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

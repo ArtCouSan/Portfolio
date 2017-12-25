@@ -1,5 +1,7 @@
 package com.portfolio.repository;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -24,8 +26,20 @@ public class FormacaoServiceImpl implements FormacaoService{
 	
 	@Override
 	public List<Formacao> listar() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Iterable<Formacao> formacoes = repository.findAll();
+		
+		Iterator<Formacao> it = formacoes.iterator();
+		
+		List<Formacao> lista = new ArrayList<Formacao>();
+		
+		while (it.hasNext()) {
+            Formacao f = (Formacao) it.next();
+            lista.add(f);
+        }
+		
+		return lista;
+		
 	}
 
 	@Override

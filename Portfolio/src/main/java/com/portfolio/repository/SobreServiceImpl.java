@@ -30,8 +30,7 @@ public class SobreServiceImpl implements SobreService {
 
 	@Override
 	public Sobre obter(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findOne(id);
 	}
 
 	@Override

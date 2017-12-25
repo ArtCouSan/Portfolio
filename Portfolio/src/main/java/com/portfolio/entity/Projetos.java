@@ -54,6 +54,19 @@ public class Projetos implements Serializable {
 	@Column(name = "IMAGEM_FOTO", length = 50)
 	private String foto;
 
+	@NotBlank(message = "A url é obrigatória!")
+	@Column(name = "PROJETOS_URL", length = 100)
+	private String Url;
+
+	
+	public String getUrl() {
+		return Url;
+	}
+
+	public void setUrl(String url) {
+		Url = url;
+	}
+
 	public String getFoto() {
 		return foto;
 	}

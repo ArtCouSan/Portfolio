@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.portfolio.entity.Curso_Complementar;
 import com.portfolio.entity.Formacao;
 import com.portfolio.entity.Imagem;
 import com.portfolio.service.FormacaoService;
@@ -70,7 +69,7 @@ public class ControllerFormacao {
 		service.incluir(formacao);
 
 		attributes.addFlashAttribute("mensagem", "Enviado com sucesso");
-		return new ModelAndView("redirect:/adminFormacao");
+		return new ModelAndView("redirect:/admin/formacao");
 
 	}
 

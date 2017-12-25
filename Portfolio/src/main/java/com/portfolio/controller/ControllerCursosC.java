@@ -67,7 +67,7 @@ public class ControllerCursosC {
 		service.incluir(cursosC);
 
 		attributes.addFlashAttribute("mensagem", "Enviado com sucesso");
-		return new ModelAndView("redirect:/adminCursosC");
+		return new ModelAndView("redirect:/admin/cursosC");
 
 	}
 }

@@ -1,17 +1,12 @@
 package com.portfolio.entity;
 
 import java.io.Serializable;
-import java.util.Set;
 
 import javax.persistence.Column;
-import javax.persistence.JoinColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -46,19 +41,6 @@ public class Experiencia implements Serializable {
 	@Column(name = "EXPERIENCIA_DTINICIO", length = 500)
 	private String DtInicio;
 
-	@ManyToMany
-    @JoinTable(name = "TB_EXPERIENCIA_E_ATIVIDADE",
-            joinColumns = {
-                @JoinColumn(name = "ID_EXPERIENCIA")
-            },
-            inverseJoinColumns = {
-                @JoinColumn(name = "ID_EXPERIENCIA_ATIVIDADE")
-            })
-    private Set<Experiencia_Atividade> atividade;
-    
-    @Transient
-    private Set<Long> idAtividade;
-    
     public Long getId() {
 		return Id;
 	}
@@ -67,37 +49,6 @@ public class Experiencia implements Serializable {
 		Id = id;
 	}
 
-	public Set<Experiencia_Atividade> getAtividade() {
-		return atividade;
-	}
-
-	public void setAtividade(Set<Experiencia_Atividade> atividade) {
-		this.atividade = atividade;
-	}
-
-	public Set<Long> getIdAtividade() {
-		return idAtividade;
-	}
-
-	public void setIdAtividade(Set<Long> idAtividade) {
-		this.idAtividade = idAtividade;
-	}
-
-	public Set<Long> getIdAtividades() {
-        return idAtividade;
-    }
-
-    public void setIdAtividades(Set<Long> idAtividade) {
-        this.idAtividade = idAtividade;
-    }
-    
-    public Set<Experiencia_Atividade> getAtividades() {
-        return atividade;
-    }
-
-    public void setAtividades(Set<Experiencia_Atividade> atividade) {
-        this.atividade = atividade;
-    }
     
 	public String getEmpresa() {
 		return Empresa;
@@ -131,23 +82,7 @@ public class Experiencia implements Serializable {
 		DtInicio = dtInicio;
 	}
 
-	public Experiencia(Long id, String empresa, String periodo, String cargo, String dtInicio,
-			Set<Experiencia_Atividade> atividade, Set<Long> idAtividade) {
-		super();
-		Id = id;
-		Empresa = empresa;
-		Periodo = periodo;
-		Cargo = cargo;
-		DtInicio = dtInicio;
-		this.atividade = atividade;
-		this.idAtividade = idAtividade;
-	}
-
 	public Experiencia() {
 	}
-	
-	
-	
-	
 	
 }

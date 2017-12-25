@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	
 $('#pinBoot').pinterest_grid({
 no_columns: 4,
 padding_x: 10,

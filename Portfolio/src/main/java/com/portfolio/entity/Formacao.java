@@ -31,8 +31,6 @@ public class Formacao implements Serializable {
 	@Column(name = "FORMACAO_PERIODO", length = 200)
 	private String Periodo;
 	
-	@NotBlank(message = "O tipo da forma��o � obrigat�rio!")
-    @Size(max = 1, message = "O tipo da forma��o deve ser escolhida!")
 	@Column(name = "FORMACAO_TIPO", length = 1)
 	private char Tipo;
 
