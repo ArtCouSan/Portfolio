@@ -38,15 +38,15 @@
 					<div class="form-group"
 						data-th-classappend="${#fields.hasErrors('idExperiencia')} ? has-error">
 						<label for="sel1">* Empresa:</label> <select name="idExperiencia"
-							data-th-field="*{idExperiencia}" class="form-control" id="sel1">
+							data-th-field="*{experiencia.Id}" class="form-control" id="sel1" >
 							<option value="">Escolha a empresas</option>
 							<option data-th-each="empresa : ${empresas}"
-								data-th-value="${empresa.Id}" data-th-text="${empresa.Empresa}"></option>
+								 data-th-value="${empresa.Id}" data-th-text="${empresa.Empresa}"></option>
 						</select>
 					</div>
 					<br />
 
-					<button id="salvar" type="button"
+					<button id="salvar" type="submit"
 						class="button button-raised button-primary button-pill botaoC">Salvar</button>
 					<br />
 					<p class="textCampo text-right">* Campos obrigatórios</p>

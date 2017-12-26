@@ -39,15 +39,16 @@
 		<br />
 
 
-<section class="cd-horizontal-timeline experiencia_texto">
+		<section class="cd-horizontal-timeline experiencia_texto">
 
 			<div class="timeline">
 				<div class="events-wrapper">
 					<div class="events">
 						<ol>
-							<li><a href="#0" data-date="16/12/2014" class="selected">12/2014</a></li>
-							<li><a href="#0" data-date="23/03/2015">03/2016</a></li>
-							<li><a href="#0" data-date="16/01/2017">01/2017</a></li>
+							<li data-th-each="empresa : ${empresas}"><a href="#0"
+								th:data-date="${#strings.substring(empresa.Periodo,0,10)}"
+								data-th-text="${#strings.substring(empresa.Periodo,3,10)}"
+								data-th-classappend="${empresa.Empresa} == 'Paris Store' ? selected : ' '"></a></li>
 						</ol>
 						<span class="filling-line" aria-hidden="true"></span>
 					</div>
@@ -57,56 +58,14 @@
 			<div class="events-content">
 
 				<ol>
-					<li class="selected" data-date="16/12/2014"><em
-						class="text-center">Paris Store</em> <em class="text-center">16/12/2014
-							até 23/01/2015</em>
-						<p class="experiencia_texto">Cargo: Fiscal de loja.</p>
-						<p class="experiencia_texto">• Fiscalização por zelo aos
-							produtos e serviços.</p>
-						<p class="experiencia_texto">• Auxiliar as vendas e os
-							processos.</p>
-						<p class="experiencia_texto">• Pesquisa de melhoria e
-							qualidade.</p>
-						<p class="experiencia_texto">• Organização de estoque e
-							reposição de itens a loja.</p></li>
-
-					<li data-date="23/03/2015"><em class="text-center">MWM
-							Motores Diesel LTDA</em> <em class="text-center">23/03/2015 até
-							07/04/2016</em>
-						<p class="experiencia_texto">Cargo: Estágio administrativo.</p>
-						<p class="experiencia_texto">Atividades no departamento de ti:
-						</p>
-						<p class="experiencia_texto">• Suporte local e remoto aos
-							usuários</p>
-						<p class="experiencia_texto">• Manutenção de máquinas,
-							formatação e backup.</p>
-						<p class="experiencia_texto">Atividades no departamento de
-							manutenção predial:</p>
-						<p class="experiencia_texto">• Arquivamento de ordens
-							preventivas</p>
-						<p class="experiencia_texto">• Acompanhamento de ordens
-							fiscais.</p>
-						<p class="experiencia_texto">Atividades no departamento de
-							correio interno:</p>
-						<p class="experiencia_texto">• Catalogação e organização de
-							correspondências internas.</p></li>
-
-					<li data-date="16/01/2017"><em class="text-center">Secretaria
-							Municipal de Saúde</em> <em class="text-center">16/01/2017 até
-							01/12/2017</em>
-						<p class="experiencia_texto">Cargo: Estágio de suporte a
-							informática.</p>
-						<p class="experiencia_texto">Atividades:</p>
-						<p class="experiencia_texto">• Fornecimento de suporte técnico
-							local aos usuários.</p>
-						<p class="experiencia_texto">• Elaborar procedimentos e dicas
-							de informática para usuários.</p>
-						<p class="experiencia_texto">• Planejar e fazer melhorias para
-							a infraestrutura.</p>
-						<p class="experiencia_texto">• Auxiliar na detecção de falhas
-							ao sistema.</p>
-						<p class="experiencia_texto">• Manutenção de
-							Microcomputadores.</p></li>
+					<li data-th-classappend="${empresa.Empresa} == 'Paris Store' ? selected : ' ' "
+					 data-th-each="empresa : ${empresas}" 
+						th:data-date="${#strings.substring(empresa.Periodo,0,10)}">
+							<em data-th-text="${empresa.Empresa}" class="text-center"></em> 
+							<em data-th-text="${empresa.Periodo}" class="text-center"></em>
+							<p data-th-text="${empresa.Cargo} + ' :'" class="experiencia_texto"></p>
+							<p data-th-each="atividade : ${atividades}" data-th-if="${atividade.experiencia.id} == ${empresa.id}" data-th-text="'• ' + ${atividade.Atividade} + ' .'"  class="experiencia_texto"></p>
+					</li>
 
 				</ol>
 

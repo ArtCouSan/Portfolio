@@ -35,11 +35,6 @@ public class Experiencia implements Serializable {
 	@Size(max = 500, message = "O título deve conter no máximo 500 caractéres!")
 	@Column(name = "EXPERIENCIA_CARGO", length = 500)
 	private String Cargo;
-	
-	@NotBlank(message = "A data de inicio é obrigatória!")
-	@Size(max = 500, message = "O título deve conter no máximo 500 caractéres!")
-	@Column(name = "EXPERIENCIA_DTINICIO", length = 500)
-	private String DtInicio;
 
     public Long getId() {
 		return Id;
@@ -72,14 +67,6 @@ public class Experiencia implements Serializable {
 
 	public void setCargo(@NotBlank @Size(max = 500) String cargo) {
 		Cargo = cargo;
-	}
-
-	public String getDtInicio() {
-		return DtInicio;
-	}
-
-	public void setDtInicio(@NotBlank @Size(max = 500) String dtInicio) {
-		DtInicio = dtInicio;
 	}
 
 	public Experiencia() {
