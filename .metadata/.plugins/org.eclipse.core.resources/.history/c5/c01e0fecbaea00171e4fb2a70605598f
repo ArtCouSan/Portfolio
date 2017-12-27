@@ -39,7 +39,7 @@
 						<label for="sel1">* Empresa:</label> <select name="idExperiencia"
 							data-th-field="*{experiencia.Id}" class="form-control" id="sel1" >
 							<option value="">Escolha a empresas</option>
-							<option data-th-if="${empresa} != null" data-th-each="empresa : ${empresas}"
+							<option data-th-if="${}" data-th-each="empresa : ${empresas}"
 								 data-th-value="${empresa.Id}" data-th-text="${empresa.Empresa}"></option>
 						</select>
 					</div>

@@ -9,18 +9,28 @@
 	rel="stylesheet" />
 <link data-th-href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
 	rel="stylesheet" />
+<link data-th-href="@{/webjars/font-awesome/css/font-awesome.css}"
+	rel="stylesheet" />
 <link data-th-href="@{/css/home.css}" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a id="sobF">Sobre Autor</a></li>
-				<li><a id="expF" >Experiências</a></li>
-				<li><a id="forAF">Formação Acadêmica</a></li>
-				<li><a id="forTF">Formação Técnica</a></li>
-				<li><a id="curF">Cursos Complementares</a></li>
-				<li><a id="proF">Projetos</a></li>
+				<li class="active"><a id="sobF"><i class="fa fa-user-o"
+						aria-hidden="true"></i> - Sobre Autor</a></li>
+				<li><a id="expF"><i class="fa fa-briefcase"
+						aria-hidden="true"></i> - Experiências</a></li>
+				<li><a id="forAF"><i class="fa fa-graduation-cap"
+						aria-hidden="true"></i> - Formação Acadêmica</a></li>
+				<li><a id="forTF"><i class="fa fa-graduation-cap"
+						aria-hidden="true"></i> - Formação Técnica</a></li>
+				<li><a id="curF"><i class="fa fa-trophy" aria-hidden="true"></i>
+						- Cursos Complementares</a></li>
+				<li><a id="proF"><i class="fa fa-coffee" aria-hidden="true"></i>
+						- Projetos</a></li>
+				<li><a href="https://github.com/ArtCouSan" target="_blank"><i
+						class="fa fa-github-alt" aria-hidden="true"></i> - GitHub</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -29,7 +39,7 @@
 		<div class="row" id="telaSob">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<h2 class="text-center home_titulo">Sobre o Autor</h2>
-				<h3 data-th-text=${sobre.descricao} class="text-center home_titulo"></h3>
+				<h3 data-th-if="${sobre != null}" data-th-text=${sobre.descricao} class="text-center home_titulo"></h3>
 			</div>
 		</div>
 
@@ -42,7 +52,7 @@
 		<br />
 
 
-		<section class="cd-horizontal-timeline experiencia_texto">
+		<section class="cd-horizontal-timeline experiencia_texto" data-th-if="${empresas != null}">
 
 			<div class="timeline">
 				<div class="events-wrapper">
@@ -93,9 +103,9 @@
 
 		<div class="row">
 			<div data-th-each="formacao : ${formacoes}"
-				data-th-if="${formacao.Tipo} == A"
+				data-th-if="${formacao.Tipo} == A && ${formacao} != null"
 				class=" col-xs-12 col-sm-3 col-md-3 col-lg-3">
-				<div class="thumbnail">
+				<div class="thumbnail thumb">
 					<img class="img-responsive" data-th-alt="${formacao.Legenda}"
 						data-th-src="@{'/imgs/formacao/' + ${formacao.foto} + '.jpg'} ">
 					<div class="caption">
@@ -119,7 +129,7 @@
 			<div data-th-each="formacao : ${formacoes}"
 				data-th-if="${formacao.Tipo} == T"
 				class=" col-xs-12 col-sm-3 col-md-3 col-lg-3">
-				<div class="">
+				<div class="thumbnail thumb">
 					<img class="img-responsive" data-th-alt="${formacao.Legenda}"
 						data-th-src="@{'/imgs/formacao/' + ${formacao.foto} + '.jpg'} ">
 					<div class="caption">
@@ -153,18 +163,18 @@
 
 		</section>
 
-		<div class="row" id="telaPro" >
+		<div class="row" id="telaPro">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<h2 class="text-center curriculo_titulo">Projetos</h2>
 			</div>
 		</div>
 
-		<div class="row" >
+		<div class="row">
 			<div data-th-each="projeto : ${projetos}"
 				class="col-sm-6 col-md-6 col-lg-6">
 				<div class="blog-card">
 					<div class="photo photo1">
-						<img class="d-block img-fluid img-responsive"
+						<img class="d-block img-fluid img-responsive img_"
 							data-th-alt="${projeto.Legenda}"
 							data-th-src="@{'/imgs/projetos/' + ${projeto.foto} + '.jpg'} " />
 					</div>

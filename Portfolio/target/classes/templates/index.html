@@ -39,7 +39,7 @@
 		<div class="row" id="telaSob">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<h2 class="text-center home_titulo">Sobre o Autor</h2>
-				<h3 data-th-text=${sobre.descricao} class="text-center home_titulo"></h3>
+				<h3 data-th-if="${sobre != null}" data-th-text=${sobre.descricao} class="text-center home_titulo"></h3>
 			</div>
 		</div>
 
@@ -52,7 +52,7 @@
 		<br />
 
 
-		<section class="cd-horizontal-timeline experiencia_texto">
+		<section class="cd-horizontal-timeline experiencia_texto" data-th-if="${empresas != null}">
 
 			<div class="timeline">
 				<div class="events-wrapper">
@@ -103,7 +103,7 @@
 
 		<div class="row">
 			<div data-th-each="formacao : ${formacoes}"
-				data-th-if="${formacao.Tipo} == A"
+				data-th-if="${formacao.Tipo} == A && ${formacao} != null"
 				class=" col-xs-12 col-sm-3 col-md-3 col-lg-3">
 				<div class="thumbnail thumb">
 					<img class="img-responsive" data-th-alt="${formacao.Legenda}"
@@ -126,8 +126,8 @@
 
 		<div class="row">
 
-			<div data-th-each="formacao : ${formacoes}"
-				data-th-if="${formacao.Tipo} == T"
+			<div data-th-each="formacao : ${formacoes}" 
+				data-th-if="${formacao.Tipo} == T && ${formacao} != null"
 				class=" col-xs-12 col-sm-3 col-md-3 col-lg-3">
 				<div class="thumbnail thumb">
 					<img class="img-responsive" data-th-alt="${formacao.Legenda}"
@@ -151,7 +151,7 @@
 
 		<section id="pinBoot">
 
-			<article data-th-each="curso : ${cursos}" class="white-panel">
+			<article data-th-each="curso : ${cursos}" data-th-if="${curso != null}" class="white-panel">
 				<img class="img_c" data-th-alt="${curso.Legenda}"
 					data-th-src="@{'/imgs/formacao/' + ${curso.foto} + '.jpg'} ">
 				<h4 data-th-text="${curso.Curso}" class="text-center"></h4>
@@ -170,8 +170,8 @@
 		</div>
 
 		<div class="row">
-			<div data-th-each="projeto : ${projetos}"
-				class="col-sm-6 col-md-6 col-lg-6">
+			<div data-th-each="projeto : ${projetos}" data-th-if="${projetos != null}"
+				class="col-sm-6 col-md-6 col-lg-6"> 
 				<div class="blog-card">
 					<div class="photo photo1">
 						<img class="d-block img-fluid img-responsive img_"
