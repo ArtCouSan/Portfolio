@@ -22,7 +22,7 @@ import com.portfolio.service.ProjetosService;
 import com.portfolio.service.SobreService;
 
 @Controller
-@RequestMapping("/index")
+@RequestMapping(value = {"/index", "/"})
 public class ControllerVisitante {
 
 	@Autowired

@@ -3,6 +3,15 @@ body {
 	
 }
 
+.thumb{
+	border-radius: 0px; 
+	padding: 5%;
+}
+
+.img_{
+	height: 100%;
+}
+
 .home_titulo, .curriculo_titulo, .curriculo_texto, .experiencia_texto {
 	color: white;
 }

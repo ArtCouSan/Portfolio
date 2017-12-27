@@ -11,5 +11,7 @@ $(document).ready(function() {
 	$('.periodoInicio').mask('00/0000', {
 		placeholder : "__/___"
 	});
-
+	$('.cpfLogin').mask('000.000.000-00', {
+		placeholder : "___.___.___-__"
+	});
 });

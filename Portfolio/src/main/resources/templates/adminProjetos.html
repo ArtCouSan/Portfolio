@@ -5,15 +5,15 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
 <title>Projetos - Administrador</title>
-<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+<link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}"
 	rel="stylesheet" />
-<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+<link data-th-href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
 	rel="stylesheet" />
-<link th:href="@{/css/admin.css}" rel="stylesheet" />
+<link data-th-href="@{/css/admin.css}" rel="stylesheet" />
 </head>
 <body>
 
-	<div th:include="~{adminCabecalho  :: menu_topo}"></div>
+	<div data-th-include="~{adminCabecalho  :: menu_topo}"></div>
 
 	<div class="container">
 
@@ -114,7 +114,7 @@
 		</div>
 
 	</div>
-	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script data-th-src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script data-th-src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

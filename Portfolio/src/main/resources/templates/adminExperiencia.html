@@ -5,15 +5,15 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
 <title>Experiência - Administrador</title>
-<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+<link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}"
 	rel="stylesheet" />
-<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+<link data-th-href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
 	rel="stylesheet" />
-<link th:href="@{/css/admin.css}" rel="stylesheet" />
+<link data-th-href="@{/css/admin.css}" rel="stylesheet" />
 </head>
 <body>
 
-	<div th:include="~{adminCabecalho  :: menu_topo}"></div>
+	<div data-th-include="~{adminCabecalho  :: menu_topo}"></div>
 
 	<div class="container">
 
@@ -23,7 +23,7 @@
 			<div
 				class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 
-				<form method="post" data-th-action="@{/admin/experiencia}"
+				<form action="#" method="post" data-th-action="@{/admin/experiencia}"
 					data-th-object="${experiencia}" novalidate>
 
 					<label for="basic-url">* Empresa:</label>
@@ -65,9 +65,9 @@
 		</div>
 
 	</div>
-	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>s
-	<script th:src="@{/js/jquery.mask.js}"></script>
-	<script th:src="@{/js/mascara.js}"></script>
+	<script data-th-src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script data-th-src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>s
+	<script data-th-src="@{/js/jquery.mask.js}"></script>
+	<script data-th-src="@{/js/mascara.js}"></script>
 </body>
 </html>
