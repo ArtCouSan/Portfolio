@@ -1,0 +1,16 @@
+package com.portfolio.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.portfolio.service.Experiencia_AtividadeService;
+
+@RequestMapping("/admin/atividade")
+@Controller
+public class ControllerAtvidade {
+
+	@Autowired
+	private Experiencia_AtividadeService serviceAtividade;
+
+}

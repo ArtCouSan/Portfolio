@@ -1,0 +1,9 @@
+package com.portfolio.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/admin/formacao")
+public class ControllerFormacao {
+
+}

@@ -1,0 +1,4 @@
+$(document).ready(function(){
+	$('.periodoFormacao').mask('0000 - 0000');
+	$('.periodoCurso').mask('00/00/0000 até 00/00/000');
+});

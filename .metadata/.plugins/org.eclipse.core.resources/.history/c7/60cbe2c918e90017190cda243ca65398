@@ -1,0 +1,52 @@
+$(document)
+		.ready(
+				function() {
+
+					$("#addAtividades")
+							.click(
+									function() {
+
+										$("#referencia")
+												.before(
+														'<label for="basic-url">* Atividade:</label><div class="input-group input_"><span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-user"></span></span> <input type="text" class="form-control" aria-describedby="sizing-addon2" required></div>');
+
+									});
+
+					$("#salvar").click(function() {
+
+						var json = '{"Atividade":""}';
+//
+//						var i = 0;
+//
+//						$("#form input").each(function() {
+//
+//							if ($(this).val() != '') {
+//
+//								json["nome"] = $(this).val();
+//
+//								i++;
+//
+//							}
+//
+//						});
+
+						var json2 = JSON.parse(json);
+						
+
+						$.ajax({
+							headers: { 
+						        'Accept': 'application/json',
+						        'Content-Type': 'application/json' 
+						    },
+							url : "/admin/experiencia/atividades",
+							method : "POST",
+							dataType : "json",
+							data : json2, 
+							success : function(resposeJsonObject) {
+								console.log("sucess");
+							}
+						});
+
+					});
+
+				});

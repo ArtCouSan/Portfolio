@@ -1,0 +1,12 @@
+package com.portfolio.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TB_CLIENTE")
+public class User implements Serializable {
+
+}

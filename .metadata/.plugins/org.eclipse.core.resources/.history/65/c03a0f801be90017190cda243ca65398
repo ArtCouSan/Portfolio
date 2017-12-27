@@ -1,0 +1,12 @@
+package com.portfolio.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.portfolio.service.Experiencia_AtividadeService;
+
+public class ControllerAtvidade {
+
+	@Autowired
+	private Experiencia_AtividadeService serviceAtividade;
+
+}

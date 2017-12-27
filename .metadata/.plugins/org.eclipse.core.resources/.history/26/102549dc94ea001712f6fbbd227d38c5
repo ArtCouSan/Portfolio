@@ -1,0 +1,12 @@
+$(document).ready(function() {
+	
+	$("#proF").click(function() {
+		
+		$("#telaPro").style = 
+		
+	});
+	
+});
+	
+	
+	

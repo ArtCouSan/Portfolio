@@ -1,0 +1,54 @@
+package com.portfolio.repository;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.portfolio.entity.User;
+import com.portfolio.service.UserService;
+
+@SuppressWarnings("serial")
+@Repository
+public class UserServiceImpl implements UserService{
+
+	@PersistenceContext
+	private EntityManager entityManager;
+
+	@Autowired
+	private SobreRepository repository;
+	
+	@Override
+	public List<User> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User obter(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void incluir(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void alterar(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remover(Long codigoUser) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

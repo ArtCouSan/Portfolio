@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Home</title>
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/css/home.css}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+	<div class="container">
+		<!-- LOGIN -->
+		<div class="row">
+
+			<div
+				class="col-xs-12 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+
+				<form data-th-action="@{/login}" action="/login" method="post">
+
+					<div class="imgcontainer">
+						<img data-th-src="@{/images/login.png}" class="avatar">
+					</div>
+
+					<label data-th-if="${erro}">Erro de usuario ou senha</label> <br />
+
+					<label for="basic-url">* CPF:</label>
+					<div class="input-group input_">
+						<span class="input-group-addon" id="sizing-addon2"><span
+							class="glyphicon glyphicon-user"></span></span> <input type="text"
+							name="username" autocomplete="off" maxlength=14
+							onkeypress=" mascara (this, '###.###.###-##') "
+							class="form-control" aria-describedby="sizing-addon2">
+					</div>
+
+					<br /> <label for="basic-url">* Senha:</label>
+					<div class="input-group input_">
+						<span class="input-group-addon" id="sizing-addon2"><span
+							class="fa fa-globe"></span></span> <input type="password" name="senha"
+							autocomplete="off" maxlength="8" class="form-control"
+							aria-describedby="sizing-addon2">
+					</div>
+
+					<br />
+
+					<button type="submit"
+						class="button button-glow button-rounded button-caution botaoL">Logar</button>
+					<br />
+			</div>
+		</div>
+
+	</div>
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

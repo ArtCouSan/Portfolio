@@ -1,0 +1,81 @@
+package com.portfolio.controller;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.portfolio.entity.Experiencia;
+import com.portfolio.entity.Experiencia_Atividade;
+import com.portfolio.service.ExperienciaService;
+import com.portfolio.service.Experiencia_AtividadeService;
+
+@RequestMapping("/admin/experiencia")
+@Controller
+public class ControllerExperiencia {
+
+	@Autowired
+	private ExperienciaService serviceExperiencia;
+
+	@Autowired
+	private Experiencia_AtividadeService serviceAtividade;
+
+	@SuppressWarnings("unused")
+	private Experiencia temporarioExperiencia;
+
+	@GetMapping
+	public ModelAndView home() {
+
+		return new ModelAndView("/adminExperiencia").addObject("experiencia", new Experiencia());
+
+	}
+
+	@PostMapping
+	public ModelAndView add(@ModelAttribute(value = "experiencia") @Valid Experiencia experiencia, BindingResult result,
+			RedirectAttributes attributes) {
+
+		if (result.hasErrors()) {
+			return new ModelAndView("adminExperiencia");
+		}
+
+		this.temporarioExperiencia = experiencia;
+
+		return new ModelAndView("/adminAtividade").addObject("atividades", new Experiencia_Atividade());
+
+	}
+
+	@RequestMapping(value = "/atividades", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ModelAndView atividadeAdd(@RequestBody List<String> atividades,
+			RedirectAttributes attributes) {
+
+		for (String string : atividades) {
+			
+			
+			
+		}
+
+		
+		atividade.setIdExperiencia(this.temporarioExperiencia.getId());
+
+		serviceAtividade.incluir(atividade);
+		
+		serviceExperiencia.incluir(temporarioExperiencia);
+
+		attributes.addFlashAttribute("mensagem", "Enviado com sucesso");
+		return new ModelAndView("redirect:/admin/experiencia");
+
+	}
+
+}

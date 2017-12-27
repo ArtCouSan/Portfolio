@@ -1,0 +1,28 @@
+$(document).ready(function() {
+
+	
+	$("#addAtividades").click(function() {
+		
+		$("#referencia").before('<label for="basic-url">* Atividade:</label><div class="input-group input_"><span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-user"></span></span> <input type="text" class="form-control" aria-describedby="sizing-addon2" required></div>');
+		
+		
+		$("#form input").each(function(){
+			
+			if($(this).val() != ''){
+				
+				console.log($(this).val());
+				
+			}
+			
+			        
+			        
+		});
+
+	});
+	
+	
+	$("#salvar").click(function() {
+		
+	});
+	
+});

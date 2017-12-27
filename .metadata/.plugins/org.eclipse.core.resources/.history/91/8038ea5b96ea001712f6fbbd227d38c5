@@ -1,0 +1,43 @@
+$(document).ready(function() {
+
+	$("#sobF").click(function() {
+
+		var elmnt = document.getElementById("telaPro");
+
+		elmnt.scrollIntoView();
+
+	});
+
+	$("#expF").click(function() {
+
+		var elmnt = document.getElementById("telaCur");
+
+		elmnt.scrollIntoView();
+
+	});
+	
+	$("#forAF").click(function() {
+
+		var elmnt = document.getElementById("telaCur");
+
+		elmnt.scrollIntoView();
+
+	});
+	
+	$("#curF").click(function() {
+
+		var elmnt = document.getElementById("telaCur");
+
+		elmnt.scrollIntoView();
+
+	});
+	
+	$("#curF").click(function() {
+
+		var elmnt = document.getElementById("telaCur");
+
+		elmnt.scrollIntoView();
+
+	});
+
+});

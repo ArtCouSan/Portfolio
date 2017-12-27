@@ -1,0 +1,3 @@
+$(document).ready(function(){
+	$('.periodoFormacao').mask('0000 - 0000');
+});

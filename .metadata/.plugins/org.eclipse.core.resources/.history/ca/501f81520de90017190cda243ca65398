@@ -1,0 +1,45 @@
+$(document).ready(function() {
+
+	
+	$("#addAtividades").click(function() {
+		
+		$("#referencia").before('<label for="basic-url">* Atividade:</label><div class="input-group input_"><span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-user"></span></span> <input type="text" class="form-control" aria-describedby="sizing-addon2" required></div>');
+		
+
+	});
+	
+	
+	$("#salvar").click(function() {
+		
+		var json= {}; 
+
+		$("#form input").each(function(){
+			
+			if($(this).val() != ''){
+				
+				json[""] = $(this).val();
+				
+				console.log($(this).val());
+				
+			}
+			        
+			        
+		});
+		
+//		
+//		$.ajax({ 
+//		    url:"/atividades",    
+//		    type:"POST", 
+//		    contentType: "application/json; charset=utf-8",
+//		    data: jsonString, //Stringified Json Object
+//		    async: false,    //Cross-domain requests and dataType: "jsonp" requests do not support synchronous operation
+//		    cache: false,    //This will force requested pages not to be cached by the browser          
+//		    processData:false, //To avoid making query String instead of JSON
+//		    success: function(resposeJsonObject){
+//		        // Success Message Handler
+//		    }
+//		});
+		
+	});
+	
+});
