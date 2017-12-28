@@ -53,15 +53,19 @@ public class Curso_ComplementarServiceImpl implements Curso_ComplementarService 
 	}
 
 	@Override
+	@Transactional
 	public void alterar(Curso_Complementar curso) {
-		// TODO Auto-generated method stub
-
+		entityManager.merge(curso);
 	}
 
 	@Override
+	@Transactional
 	public void remover(Long codigoCurso_Complementar) {
-		// TODO Auto-generated method stub
+		
+		Curso_Complementar c = entityManager.find(Curso_Complementar.class, codigoCurso_Complementar);
 
+		entityManager.remove(c);		
+				
 	}
 
 }

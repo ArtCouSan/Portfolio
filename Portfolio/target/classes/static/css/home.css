@@ -3,6 +3,14 @@ body {
 	
 }
 
+._tabB{
+	width: 10%;
+}
+
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
+
 .thumb{
 	border-radius: 0px; 
 	padding: 5%;

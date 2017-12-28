@@ -23,7 +23,7 @@
 			<div
 				class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 
-				<form method="post" action="#" data-th-action="@{/admin/sobre}"
+				<form method="post" action="#" data-th-action="@{/admin/sobre/}"
 					data-th-object="${sobre}" novalidate>
 
 					<label for="basic-url">* Texto:</label>
@@ -34,6 +34,8 @@
 						<textarea id="descricao" data-th-field="*{descricao}"
 							class="form-control" aria-describedby="sizing-addon2" required></textarea>
 					</div>
+					
+					<input type="hidden" data-th-if="${sobre.id != null}" data-th-field="*{id}" data-th-value="${sobre.id}" />
 
 					<button type="submit"
 						class="button button-raised button-primary button-pill botaoC">Salvar</button>

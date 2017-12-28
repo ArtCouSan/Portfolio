@@ -16,17 +16,17 @@ import com.portfolio.service.ProjetosService;
 
 @SuppressWarnings("serial")
 @Repository
-public class ProjetosServiceImpl implements ProjetosService{
+public class ProjetosServiceImpl implements ProjetosService {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Autowired
 	private ProjetosRepository repository;
-	
+
 	@Override
 	public List<Projetos> listar() {
-		
+
 		Iterable<Projetos> projetos = repository.findAll();
 
 		Iterator<Projetos> it = projetos.iterator();
@@ -39,7 +39,7 @@ public class ProjetosServiceImpl implements ProjetosService{
 		}
 
 		return lista;
-		
+
 	}
 
 	@Override
@@ -54,15 +54,18 @@ public class ProjetosServiceImpl implements ProjetosService{
 	}
 
 	@Override
+	@Transactional
 	public void alterar(Projetos projeto) {
-		// TODO Auto-generated method stub
-		
+		entityManager.merge(projeto);
 	}
 
 	@Override
+	@Transactional
 	public void remover(Long codigoProjetos) {
-		// TODO Auto-generated method stub
-		
+
+		Projetos p = entityManager.find(Projetos.class, codigoProjetos);
+
+		entityManager.remove(p);
 	}
 
 }

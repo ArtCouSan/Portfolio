@@ -43,8 +43,7 @@ public class ExperienciaServiceImpl implements ExperienciaService {
 
 	@Override
 	public Experiencia obter(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findOne(id);
 	}
 
 	@Override
@@ -54,14 +53,18 @@ public class ExperienciaServiceImpl implements ExperienciaService {
 	}
 
 	@Override
+	@Transactional
 	public void alterar(Experiencia experiencia) {
-		// TODO Auto-generated method stub
-
+		entityManager.merge(experiencia);
 	}
 
 	@Override
+	@Transactional
 	public void remover(Long codigoExperiencia) {
-		// TODO Auto-generated method stub
+		
+		Experiencia r = entityManager.find(Experiencia.class, codigoExperiencia);
+		
+		entityManager.remove(r);
 
 	}
 

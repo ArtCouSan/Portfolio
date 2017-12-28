@@ -1,5 +1,7 @@
 package com.portfolio.repository;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -24,8 +26,20 @@ public class SobreServiceImpl implements SobreService {
 
 	@Override
 	public List<Sobre> listar() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Iterable<Sobre> sobre = repository.findAll();
+
+		Iterator<Sobre> it = sobre.iterator();
+
+		List<Sobre> lista = new ArrayList<Sobre>();
+
+		while (it.hasNext()) {
+			Sobre c = (Sobre) it.next();
+			lista.add(c);
+		}
+
+		return lista;
+		
 	}
 
 	@Override
@@ -40,14 +54,18 @@ public class SobreServiceImpl implements SobreService {
 	}
 
 	@Override
+	@Transactional
 	public void alterar(Sobre sobre) {
-		// TODO Auto-generated method stub
-
+		entityManager.merge(sobre);
 	}
 
 	@Override
+	@Transactional
 	public void remover(Long codigoSobre) {
-		// TODO Auto-generated method stub
+
+		Sobre s = entityManager.find(Sobre.class, codigoSobre);
+
+		entityManager.remove(s);
 
 	}
 

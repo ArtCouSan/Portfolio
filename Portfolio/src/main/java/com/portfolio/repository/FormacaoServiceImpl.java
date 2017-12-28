@@ -44,8 +44,7 @@ public class FormacaoServiceImpl implements FormacaoService{
 
 	@Override
 	public Formacao obter(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findOne(id);
 	}
 
 	@Override
@@ -55,14 +54,18 @@ public class FormacaoServiceImpl implements FormacaoService{
 	}
 
 	@Override
+	@Transactional
 	public void alterar(Formacao formacao) {
-		// TODO Auto-generated method stub
-		
+		entityManager.merge(formacao);		
 	}
 
 	@Override
+	@Transactional
 	public void remover(Long codigoFormacao) {
-		// TODO Auto-generated method stub
+		
+		Formacao f = entityManager.find(Formacao.class, codigoFormacao);
+		
+		entityManager.remove(f);
 		
 	}
 
