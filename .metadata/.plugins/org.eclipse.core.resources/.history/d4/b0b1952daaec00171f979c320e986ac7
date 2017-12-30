@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Home - Administrador</title>
+<link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link data-th-href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+	rel="stylesheet" />
+<link data-th-href="@{/css/home.css}" rel="stylesheet" type="text/css" />
+<link data-th-href="@{/css/buttons.css}" rel="stylesheet"
+	type="text/css" />
+
+</head>
+<body>
+	<div th:include="~{adminCabecalho :: menu_topo}"></div>
+	<div class="container">
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h2 class="text-center home_titulo">Sobre o Autor</h2>
+			</div>
+		</div>
+
+		<div class="row">
+
+			<table class="table table-bordered" style="background-color: white;">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Descrição Sobre</th>
+						<th scope="col">Excluir</th>
+						<th scope="col">Salvar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<form method="post" action="#" data-th-if="${sobre != null}"
+						data-th-action="@{/admin/sobre/search/}  + ${sobre.id}"
+						data-th-object="${sobre}" novalidate>
+						<tr>
+							<th scope="row">1</th>
+							<td data-th-text="${sobre.descricao}"></td>
+							<td class=" _tabB"><a
+								data-th-href="@{/admin/sobre/delete/} + ${sobre.id}"
+								class="button button-rounded button-caution button-tiny">Excluir</a></td>
+							<td class=" _tabB"><button type="submit"
+									class="button button-rounded button-primary button-tiny">Editar</button></td>
+						</tr>
+					</form>
+				</tbody>
+			</table>
+
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h2 class="text-center curriculo_titulo">Experiência</h2>
+			</div>
+		</div>
+
+		<div class="row">
+			<table class="table table-bordered" style="background-color: white;">
+				<thead>
+					<tr>
+						<th scope="col">Empresa</th>
+						<th scope="col">Período</th>
+						<th scope="col">Cargo</th>
+						<th scope="col">Excluir</th>
+						<th scope="col">Salvar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-th-if="${experiencias != null}"
+						data-th-each="experiencia : ${experiencias}">
+						<td data-th-text="${experiencia.Empresa}"></td>
+						<td data-th-text="${experiencia.Periodo}"></td>
+						<td data-th-text="${experiencia.Cargo}"></td>
+						<td class=" _tabB"><a
+							data-th-href="@{/admin/experiencia/delete/} + ${experiencia.id}"
+							class="button button-rounded button-caution button-tiny">Excluir</a></td>
+						<td class=" _tabB"><a
+							data-th-href="@{/admin/experiencia/search/}  + ${experiencia.id}"
+							class="button button-rounded button-primary button-tiny">Editar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<br />
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h2 class="text-center curriculo_titulo">Formação Acadêmica</h2>
+			</div>
+		</div>
+
+		<br />
+
+		<div class="row">
+			<table class="table table-bordered" style="background-color: white;">
+				<thead>
+					<tr>
+						<th scope="col">Empresa</th>
+						<th scope="col">Período</th>
+						<th scope="col">Cargo</th>
+						<th scope="col">Excluir</th>
+						<th scope="col">Salvar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-th-if="${formacoes != null}"
+						data-th-each="formacao : ${formacoes}">
+						<td data-th-if="${formacao.Tipo == A}"
+							data-th-text="${formacao.Curso}"></td>
+						<td data-th-if="${formacao.Tipo == A}"
+							data-th-text="${formacao.Periodo}"></td>
+						<td data-th-if="${formacao.Tipo == A}"
+							data-th-text="${formacao.foto}"></td>
+						<td data-th-if="${formacao.Tipo == A}"
+							data-th-text="${formacao.Legenda}"></td>
+						<td data-th-if="${formacao.Tipo == A}" class=" _tabB"><a
+							data-th-href="@{/admin/formacao/delete/} + ${formacao.id}"
+							class="button button-rounded button-caution button-tiny">Excluir</a></td>
+						<td data-th-if="${formacao.Tipo == A}" class=" _tabB"><a
+							data-th-href="@{/admin/formacao/search/}  + ${formacao.id}"
+							class="button button-rounded button-primary button-tiny">Editar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h2 class="text-center curriculo_titulo">Formação Técnica</h2>
+			</div>
+		</div>
+
+		<br />
+
+		<div class="row">
+			<table class="table table-bordered" style="background-color: white;">
+				<thead>
+					<tr>
+						<th scope="col">Empresa</th>
+						<th scope="col">Período</th>
+						<th scope="col">Cargo</th>
+						<th scope="col">Excluir</th>
+						<th scope="col">Salvar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-th-if="${formacoes != null}"
+						data-th-each="formacao : ${formacoes}">
+						<td data-th-if="${formacao.Tipo == A}"
+							data-th-text="${formacao.Curso}"></td>
+						<td data-th-if="${formacao.Tipo == A}"
+							data-th-text="${formacao.Periodo}"></td>
+						<td data-th-if="${formacao.Tipo == A}"
+							data-th-text="${formacao.foto}"></td>
+						<td data-th-if="${formacao.Tipo == A}"
+							data-th-text="${formacao.Legenda}"></td>
+						<td data-th-if="${formacao.Tipo == A}" class=" _tabB"><a
+							data-th-href="@{/admin/formacao/delete/} + ${formacao.id}"
+							class="button button-rounded button-caution button-tiny">Excluir</a></td>
+						<td data-th-if="${formacao.Tipo == A}" class=" _tabB"><a
+							data-th-href="@{/admin/formacao/search/}  + ${formacao.id}"
+							class="button button-rounded button-primary button-tiny">Editar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h2 class="text-center curriculo_titulo">Cursos Complementares</h2>
+			</div>
+		</div>
+
+		<br />
+		<div class="row">
+			<table class="table table-bordered" style="background-color: white;">
+				<thead>
+					<tr>
+						<th scope="col">Empresa</th>
+						<th scope="col">Período</th>
+						<th scope="col">Cargo</th>
+						<th scope="col">Excluir</th>
+						<th scope="col">Salvar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-th-if="${formacoes != null}"
+						data-th-each="formacao : ${formacoes}">
+						<td data-th-if="${formacao.Tipo == A}"
+							data-th-text="${formacao.Curso}"></td>
+						<td data-th-if="${formacao.Tipo == A}"
+							data-th-text="${formacao.Periodo}"></td>
+						<td data-th-if="${formacao.Tipo == A}"
+							data-th-text="${formacao.foto}"></td>
+						<td data-th-if="${formacao.Tipo == A}"
+							data-th-text="${formacao.Legenda}"></td>
+						<td data-th-if="${formacao.Tipo == A}" class=" _tabB"><a
+							data-th-href="@{/admin/formacao/delete/} + ${formacao.id}"
+							class="button button-rounded button-caution button-tiny">Excluir</a></td>
+						<td data-th-if="${formacao.Tipo == A}" class=" _tabB"><a
+							data-th-href="@{/admin/formacao/search/}  + ${formacao.id}"
+							class="button button-rounded button-primary button-tiny">Editar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h2 class="text-center curriculo_titulo">Projetos</h2>
+			</div>
+		</div>
+
+		<div class="row"></div>
+
+
+
+	</div>
+	<script data-th-src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script data-th-src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script data-th-src="@{/js/admin.js}"></script>
+</body>
+</html>

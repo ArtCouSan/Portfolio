@@ -63,7 +63,7 @@ public class ControllerAdmin {
 				.addObject("formacoes", formacao)
 				.addObject("cursos", cursos)
 				.addObject("projetos", projeto)
-				.addObject("experiencia", empresas)
+				.addObject("experiencias", empresas)
 				.addObject("atividades", atividades);
 		return modelAndView;
 	}

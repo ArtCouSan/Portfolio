@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Acme');
+
+
 body {
 	background-image: url(../imgs/home_fundo.jpg);
 	
+}
+
+.icone_git{
+	color: white;
 }
 
 ._tabB{
@@ -20,8 +27,14 @@ body {
 	height: 100%;
 }
 
+.tituloCard{
+	color: black;
+	font-family: 'Acme', sans-serif;
+}
+
 .home_titulo, .curriculo_titulo, .curriculo_texto, .experiencia_texto {
 	color: white;
+	font-family: 'Acme', sans-serif;
 }
 
 /*Cards*/

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -32,34 +33,57 @@ public class ControllerExperiencia {
 	}
 
 	@PostMapping
-	public ModelAndView add(@ModelAttribute(value = "experiencia") @Valid Experiencia experiencia, BindingResult result,
+	public ModelAndView add_update(@ModelAttribute(value = "experiencia") @Valid Experiencia experiencia, BindingResult result,
 			RedirectAttributes attributes) {
 
 		if (result.hasErrors()) {
 			return new ModelAndView("adminExperiencia");
 		}
 		
-		serviceExperiencia.incluir(experiencia);
-
-		return home();
-
-	}
-	
-	@RequestMapping(value = "/alterar/{id}")
-	public ModelAndView update(@PathVariable("id") String id, @ModelAttribute(value = "experiencia") @Valid Experiencia experiencia, BindingResult result) {
-
-		if (result.hasErrors()) {
-			return new ModelAndView("admin");
+		if(experiencia.getId() == null) {
+			
+			serviceExperiencia.incluir(experiencia);
+			
+			attributes.addFlashAttribute("mensagem", "Enviado com sucesso");
+			return new ModelAndView("redirect:/admin/experiencia");		
+			
+		}else {
+			
+			serviceExperiencia.alterar(experiencia);
+			
+			attributes.addFlashAttribute("mensagem", "Enviado com sucesso");
+			return new ModelAndView("redirect:/admin/");
+			
 		}
 		
-		Long idF = new Long(id);
+	
+	}
+	
+	@RequestMapping(value = "/search/{id}")
+	public ModelAndView edit(@PathVariable("id") String id) {
 
+		Long idF = new Long(id);
+		
+		Experiencia experiencia = serviceExperiencia.obter(idF);
+		
 		experiencia.setId(idF);
 		
 		serviceExperiencia.alterar(experiencia);
+		
+		ModelAndView modelAndView = new ModelAndView("adminExperiencia").addObject("experiencia", experiencia);
+		return modelAndView;
+		
+	}	
+	
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public ModelAndView delete(@PathVariable("id") String id) {
 
-		return new ModelAndView("/admin");
+		Long idF = new Long(id);
 
+		serviceExperiencia.remover(idF);
+
+		return new ModelAndView("redirect:/admin/");
+		
 	}
 	
 

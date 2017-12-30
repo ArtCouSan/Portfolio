@@ -49,8 +49,9 @@
 					<div class="input-group input_"
 						data-th-classappend="${#fields.hasErrors('Periodo')} ? has-error">
 						<span class="input-group-addon" id="sizing-addon2"><span
-							class="glyphicon glyphicon-user"></span></span> <input 
-							data-th-field="*{Periodo}" type="text" class="periodoCurso form-control"
+							class="glyphicon glyphicon-user"></span></span> <input
+							data-th-field="*{Periodo}" type="text"
+							class="periodoCurso form-control"
 							aria-describedby="sizing-addon2" required>
 					</div>
 
@@ -61,6 +62,7 @@
 							data-th-field="*{foto}" class="form-control" id="sel1">
 							<option value="">Escolha a imagem</option>
 							<option data-th-each="imagem : ${listImagens}"
+								data-th-classappend="${imagem.Nome} ==  *{foto} ? selected : ' '"
 								data-th-value="${imagem.Nome}" data-th-text="${imagem.Nome}"></option>
 						</select>
 					</div>
@@ -74,6 +76,10 @@
 							data-th-field="*{Legenda}" type="text" class="form-control"
 							aria-describedby="sizing-addon2" required>
 					</div>
+
+					<input type="hidden" data-th-if="${cursosC.id != null}"
+						data-th-field="*{id}" data-th-value="${cursosC.id}" />
+
 
 					<button type="submit"
 						class="button button-raised button-primary button-pill botaoC">Salvar</button>

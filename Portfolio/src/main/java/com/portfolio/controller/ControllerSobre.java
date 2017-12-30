@@ -55,8 +55,6 @@ public class ControllerSobre {
 			
 		}
 
-		
-
 	}
 
 	@RequestMapping(value = "/search/{id}")
