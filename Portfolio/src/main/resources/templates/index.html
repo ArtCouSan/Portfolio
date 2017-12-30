@@ -12,7 +12,8 @@
 <link data-th-href="@{/webjars/font-awesome/css/font-awesome.css}"
 	rel="stylesheet" />
 <link data-th-href="@{/css/home.css}" rel="stylesheet" type="text/css" />
-<link data-th-href="@{/css/buttons.css}" rel="stylesheet" type="text/css" />
+<link data-th-href="@{/css/buttons.css}" rel="stylesheet"
+	type="text/css" />
 
 </head>
 <body>
@@ -65,7 +66,7 @@
 							<li data-th-each="empresa : ${empresas}"><a href="#0"
 								th:data-date="${#strings.substring(empresa.Periodo,0,10)}"
 								data-th-text="${#strings.substring(empresa.Periodo,3,10)}"
-								data-th-classappend="${empresa.Empresa} == 'Paris Store' ? selected : ' '"></a></li>
+								data-th-classappend="${empresa.Empresa} == 'Paris Store Perfumaria LTDA-EPP' ? selected : ' '"></a></li>
 						</ol>
 						<span class="filling-line" aria-hidden="true"></span>
 					</div>
@@ -76,7 +77,7 @@
 
 				<ol>
 					<li
-						data-th-classappend="${empresa.Empresa} == 'Paris Store' ? selected : ' ' "
+						data-th-classappend="${empresa.Empresa} == 'Paris Store Perfumaria LTDA-EPP' ? selected : ' ' "
 						data-th-each="empresa : ${empresas}"
 						th:data-date="${#strings.substring(empresa.Periodo,0,10)}"><em
 						data-th-text="${empresa.Empresa}" class="text-center"></em> <em
@@ -107,14 +108,16 @@
 
 		<div class="row">
 			<div data-th-each="formacao : ${formacoes}"
-				data-th-if="${formacao} != null"
-				class=" col-xs-12 col-sm-3 col-md-3 col-lg-3">
-				<div data-th-if="${formacao.Tipo} == A" class="thumbnail thumb">
-					<img class="img-responsive" data-th-alt="${formacao.Legenda}"
-						data-th-src="@{'/imgs/formacao/' + ${formacao.foto} + '.jpg'} ">
-					<div class="caption">
-						<h4 data-th-text="${formacao.Curso}" class="text-center"></h4>
-						<h5 data-th-text="${formacao.Periodo}" class="text-center"></h5>
+				data-th-if="${formacao} != null">
+				<div data-th-if="${formacao.Tipo} == A"
+					class=" col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<div data-th-if="${formacao.Tipo} == A" class="thumbnail thumb">
+						<img class="img-responsive" data-th-alt="${formacao.Legenda}"
+							data-th-src="@{'/imgs/formacao/' + ${formacao.foto} + '.jpg'} ">
+						<div class="caption">
+							<h5 data-th-text="${formacao.Curso}" class="text-center"></h5>
+							<h5 data-th-text="${formacao.Periodo}" class="text-center"></h5>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -131,18 +134,19 @@
 		<div class="row">
 
 			<div data-th-each="formacao : ${formacoes}"
-				data-th-if="${formacao} != null"
-				class=" col-xs-12 col-sm-3 col-md-3 col-lg-3">
-				<div data-th-if="${formacao.Tipo} == T" class="thumbnail thumb">
-					<img class="img-responsive" data-th-alt="${formacao.Legenda}"
-						data-th-src="@{'/imgs/formacao/' + ${formacao.foto} + '.jpg'} ">
-					<div class="caption">
-						<h4 data-th-text="${formacao.Curso}" class="text-center"></h4>
-						<h5 data-th-text="${formacao.Periodo}" class="text-center"></h5>
+				data-th-if="${formacao} != null">
+				<div data-th-if="${formacao.Tipo} == T"
+					class=" col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<div data-th-if="${formacao.Tipo} == T" class="thumbnail thumb">
+						<img class="img-responsive" data-th-alt="${formacao.Legenda}"
+							data-th-src="@{'/imgs/formacao/' + ${formacao.foto} + '.jpg'} ">
+						<div class="caption">
+							<h4 data-th-text="${formacao.Curso}" class="text-center"></h4>
+							<h5 data-th-text="${formacao.Periodo}" class="text-center"></h5>
+						</div>
 					</div>
 				</div>
 			</div>
-
 		</div>
 
 		<div class="row" id="telaCur">
@@ -204,8 +208,9 @@
 							<b> Framework para front end: </b><i
 								data-th-text="${projeto.Framework_Client}"></i>
 						</h5>
-						<a data-th-href="${projeto.Url}" class="button button-primary button-circle button-small icone_git"><i class="fa fa-plus"></i>
-						</a>
+						<a data-th-href="${projeto.Url}"
+							class="button button-primary button-circle button-small icone_git"><i
+							class="fa fa-plus"></i> </a>
 
 					</div>
 				</div>

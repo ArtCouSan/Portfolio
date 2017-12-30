@@ -1,9 +1,0 @@
-package com.portfolio.service;
-
-import java.io.Serializable;
-
-public interface SobreService extends Serializable{
-
-	
-	
-}

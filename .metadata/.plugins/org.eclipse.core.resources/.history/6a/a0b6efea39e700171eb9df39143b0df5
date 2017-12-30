@@ -1,9 +1,0 @@
-package com.portfolio.repository;
-
-import org.springframework.data.repository.CrudRepository;
-
-import com.portfolio.entity.Experiencia;
-
-public interface Experiencia_AtividadeRepository  extends CrudRepository<Experiencia, Long>{
-
-}
