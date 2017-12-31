@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues()).and()
 				.authorizeRequests()
-				.antMatchers("/css/**", "/imgs/**", "/js/**", "/webjars/**", "/index/**", "/", "/login").permitAll()
+				.antMatchers("/css/**", "/imgs/**", "/icons/**","/js/**", "/webjars/**", "/index/**", "/", "/login").permitAll()
 				.antMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated().and().formLogin()
 				.loginPage("/login").usernameParameter("username").passwordParameter("senha").failureUrl("/login/error")
 				.permitAll().defaultSuccessUrl("/index").permitAll();
