@@ -26,6 +26,11 @@ public class Projetos implements Serializable {
 	@Column(name = "PROJETOS_LINGUAGEM", length = 200)
 	private String Linguagem;
 
+	@NotBlank(message = "A linguagem a obrigatória!")
+	@Size(max = 200, message = "A linguagem deve conter no máximo 200 caracteres!")
+	@Column(name = "PROJETOS_TITULO", length = 200)
+	private String Titulo;
+	
 	@NotBlank(message = "O banco de dados � obrigat�rio!")
 	@Size(max = 200, message = "O banco de dados deve conter no m�ximo 200 caract�res!")
 	@Column(name = "PROJETOS_BANCO_DADS", length = 200)
@@ -59,6 +64,15 @@ public class Projetos implements Serializable {
 	private String Url;
 
 	
+	
+	public String getTitulo() {
+		return Titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		Titulo = titulo;
+	}
+
 	public String getUrl() {
 		return Url;
 	}

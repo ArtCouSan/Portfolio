@@ -26,6 +26,15 @@
 				<form method="post" data-th-action="@{/admin/projeto}"
 					data-th-object="${projeto}" novalidate>
 
+					<label for="basic-url">* Título:</label>
+					<div class="input-group input_"
+						data-th-classappend="${#fields.hasErrors('Titulo')} ? has-error">
+						<span class="input-group-addon" id="sizing-addon2"><span
+							class="glyphicon glyphicon-user"></span></span> <input id="Titulo"
+							data-th-field="*{Titulo}" type="text" class="form-control"
+							aria-describedby="sizing-addon2" required>
+					</div>
+
 					<label for="basic-url">* Linguagem:</label>
 					<div class="input-group input_"
 						data-th-classappend="${#fields.hasErrors('Linguagem')} ? has-error">

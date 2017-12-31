@@ -62,7 +62,7 @@
 			<div class="timeline">
 				<div class="events-wrapper">
 					<div class="events">
-						<ol>
+						<ol >
 							<li data-th-each="empresa : ${empresas}"><a href="#0"
 								th:data-date="${#strings.substring(empresa.Periodo,0,10)}"
 								data-th-text="${#strings.substring(empresa.Periodo,3,10)}"
@@ -71,6 +71,10 @@
 						<span class="filling-line" aria-hidden="true"></span>
 					</div>
 				</div>
+				<ul class="cd-timeline-navigation">
+					<li><a href="#0" class="prev inactive">Prev</a></li>
+					<li><a href="#0" class="next">Next</a></li>
+				</ul>
 			</div>
 
 			<div class="events-content">
@@ -190,7 +194,7 @@
 							data-th-src="@{'/imgs/projetos/' + ${projeto.foto} + '.jpg'} " />
 					</div>
 					<div class="description">
-						<h3 class="tituloCard">Portfólio</h3>
+						<h3 data-th-text="${projeto.Titulo}" class="tituloCard"></h3>
 						<h5 class="text-left" id="p1">
 							<b> Linguagem: </b> <i data-th-text="${projeto.Linguagem}"></i>
 						</h5>
@@ -208,8 +212,9 @@
 							<b> Framework para front end: </b><i
 								data-th-text="${projeto.Framework_Client}"></i>
 						</h5>
-						<a data-th-href="${projeto.Url}"
-							class="button button-primary button-circle button-small icone_git"><i
+						<a style="position: absolute; top: 5%; right: 5%"
+							data-th-href="${projeto.Url}" target="_blank"
+							class="button button-caution button-circle button-small icone_git"><i
 							class="fa fa-plus"></i> </a>
 
 					</div>

@@ -1,5 +1,0 @@
-jQuery(function($) {
-	$("#periodoFormacao").mask("9999 - 9999");
-	$("#campoTelefone").mask("(999) 999-9999");
-	$("#campoSenha").mask("***-****");
-});

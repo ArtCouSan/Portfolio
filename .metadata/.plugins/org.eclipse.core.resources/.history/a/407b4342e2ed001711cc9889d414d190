@@ -1,0 +1,37 @@
+package com.portfolio.config;
+
+import java.io.IOException;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+
+import com.portfolio.security.MyUserDetails;
+
+public class JWTAuthorizationFilter extends BasicAuthenticationFilter{
+
+	private final MyUserDetails customUserDetailService;
+	
+	public JWTAuthorizationFilter(AuthenticationManager authenticationManager, MyUserDetails customUserDetailService) {
+		super(authenticationManager);
+		this.customUserDetailService = customUserDetailService;
+	}
+	
+	static final long EXPIRATION_TIME = 8640000L;
+	static final String SECRET = "Joselito";
+	static final String TOKEN_PREFIX = "Bearer";
+	static final String  HEADER_STRING = "Authorization";
+
+	@Override
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain arg2)
+			throws IOException, ServletException {
+		
+		String header = request.getHeader(HEADER_STRING);
+		
+	}
+	
+} 

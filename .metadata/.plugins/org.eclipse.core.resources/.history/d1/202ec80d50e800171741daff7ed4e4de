@@ -1,3 +1,0 @@
-$(document).ready(function(){
-	$('#periodoFormacao').mask('9999 - 9999');
-});
