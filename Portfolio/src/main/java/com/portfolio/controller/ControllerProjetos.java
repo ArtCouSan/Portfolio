@@ -1,9 +1,5 @@
 package com.portfolio.controller;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.portfolio.entity.Imagem;
 import com.portfolio.entity.Projetos;
 import com.portfolio.service.ProjetosService;
 
@@ -32,30 +27,7 @@ public class ControllerProjetos {
 	@GetMapping
 	public ModelAndView home() {
 
-		File file = new File("src//main//resources//static//imgs//projetos");
-
-		File[] arquivos = file.listFiles();
-
-		List<Imagem> imagensCursos = new ArrayList<>();
-
-		Imagem img = null;
-
-		for (File arquivo : arquivos) {
-
-			img = new Imagem();
-
-			int tamanhoNome = arquivo.getName().length();
-
-			String nomeImg = arquivo.getName().substring(0, tamanhoNome - 4);
-
-			img.setNome(nomeImg);
-
-			imagensCursos.add(img);
-
-		}
-
-		ModelAndView modelAndView = new ModelAndView("adminProjetos").addObject("projeto", new Projetos())
-				.addObject("listImagens", imagensCursos);
+		ModelAndView modelAndView = new ModelAndView("adminProjetos").addObject("projeto", new Projetos());
 		return modelAndView;
 
 	}
@@ -89,35 +61,13 @@ public class ControllerProjetos {
 	@RequestMapping(value = "/search/{id}")
 	public ModelAndView edit(@PathVariable("id") String id) {
 		
-		File file = new File("src//main//resources//static//imgs//projetos");
-
-		File[] arquivos = file.listFiles();
-
-		List<Imagem> imagensCursos = new ArrayList<>();
-
-		Imagem img = null;
-
-		for (File arquivo : arquivos) {
-
-			img = new Imagem();
-
-			int tamanhoNome = arquivo.getName().length();
-
-			String nomeImg = arquivo.getName().substring(0, tamanhoNome - 4);
-
-			img.setNome(nomeImg);
-
-			imagensCursos.add(img);
-
-		}
-		
 		Long idF = new Long(id);
 		
 		Projetos projetos = service.obter(idF);
 		
 		service.alterar(projetos);
 		
-		ModelAndView modelAndView = new ModelAndView("adminProjetos").addObject("projeto", projetos).addObject("listImagens", imagensCursos);
+		ModelAndView modelAndView = new ModelAndView("adminProjetos").addObject("projeto", projetos);
 		return modelAndView;
 		
 	}

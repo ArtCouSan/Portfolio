@@ -10,10 +10,14 @@
 <link data-th-href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
 	rel="stylesheet" />
 <link data-th-href="@{/css/admin.css}" rel="stylesheet" />
-<link rel="apple-touch-icon" sizes="57x57" data-th-href="@{/icons/apple-icon-57x57.png}">
-<link rel="apple-touch-icon" sizes="60x60" data-th-href="@{/icons/apple-icon-60x60.png}">
-<link rel="apple-touch-icon" sizes="72x72" data-th-href="@{/icons/apple-icon-72x72.png}">
-<link rel="apple-touch-icon" sizes="76x76" data-th-href="@{/icons/apple-icon-76x76.png}">
+<link rel="apple-touch-icon" sizes="57x57"
+	data-th-href="@{/icons/apple-icon-57x57.png}">
+<link rel="apple-touch-icon" sizes="60x60"
+	data-th-href="@{/icons/apple-icon-60x60.png}">
+<link rel="apple-touch-icon" sizes="72x72"
+	data-th-href="@{/icons/apple-icon-72x72.png}">
+<link rel="apple-touch-icon" sizes="76x76"
+	data-th-href="@{/icons/apple-icon-76x76.png}">
 <link rel="apple-touch-icon" sizes="114x114"
 	data-th-href="@{/icons/apple-icon-114x114.png}">
 <link rel="apple-touch-icon" sizes="120x120"
@@ -80,15 +84,13 @@
 						</select>
 					</div>
 
-					<div class="form-group"
+					<label for="basic-url">* Url Imagem:</label>
+					<div class="input-group input_"
 						data-th-classappend="${#fields.hasErrors('foto')} ? has-error">
-						<label for="sel1">* Imagem:</label> <select name="foto"
-							data-th-field="*{foto}" class="form-control" id="sel1">
-							<option value="">Escolha a imagem</option>
-							<option data-th-each="imagem : ${listImagens}"
-								data-th-classappend="${imagem.Nome} ==  *{foto} ? selected : ' '"
-								data-th-value="${imagem.Nome}" data-th-text="${imagem.Nome}"></option>
-						</select>
+						<span class="input-group-addon" id="sizing-addon2"><span
+							class="glyphicon glyphicon-user"></span></span> <input id="foto"
+							data-th-field="*{foto}" type="text" class="form-control"
+							aria-describedby="sizing-addon2" required>
 					</div>
 
 

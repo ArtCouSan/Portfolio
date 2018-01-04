@@ -38,11 +38,11 @@ public class Curso_Complementar implements Serializable{
 
 	
 	@Size(min = 1, max = 50)
-	@Column(name = "IMAGEM_LEGENDA", length = 50)
+	@Column(name = "IMAGEM_LEGENDA", length = 100)
 	private String Legenda;
 
 	@NotBlank(message = "O per�odo de curso � obrigat�rio!")
-	@Column(name = "IMAGEM_FOTO", length = 50)
+	@Column(name = "IMAGEM_FOTO", length = 100)
 	private String foto;
 	
 	public Long getId() {

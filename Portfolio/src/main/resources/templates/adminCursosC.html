@@ -82,17 +82,14 @@
 					</div>
 
 
-					<div class="form-group"
+					<label for="basic-url">* Url Imagem:</label>
+					<div class="input-group input_"
 						data-th-classappend="${#fields.hasErrors('foto')} ? has-error">
-						<label for="sel1">* Imagem:</label> <select name="foto"
-							data-th-field="*{foto}" class="form-control" id="sel1">
-							<option value="">Escolha a imagem</option>
-							<option data-th-each="imagem : ${listImagens}"
-								data-th-classappend="${imagem.Nome} ==  *{foto} ? selected : ' '"
-								data-th-value="${imagem.Nome}" data-th-text="${imagem.Nome}"></option>
-						</select>
+						<span class="input-group-addon" id="sizing-addon2"><span
+							class="glyphicon glyphicon-user"></span></span> <input id="foto"
+							data-th-field="*{foto}" type="text" class="form-control"
+							aria-describedby="sizing-addon2" required>
 					</div>
-
 
 					<label for="basic-url">* Legenda Imagem:</label>
 					<div class="input-group input_"

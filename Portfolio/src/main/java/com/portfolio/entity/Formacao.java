@@ -39,7 +39,7 @@ public class Formacao implements Serializable {
 	private String Legenda;
 
 	@NotBlank(message = "O per�odo de curso � obrigat�rio!")
-	@Column(name = "IMAGEM_FOTO", length = 50)
+	@Column(name = "IMAGEM_FOTO", length = 100)
 	private String foto;
 	
 	public String getFoto() {
