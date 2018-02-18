@@ -26,11 +26,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues()).and()
-				.authorizeRequests()
-				.antMatchers("/css/**", "/imgs/**", "/icons/**","/js/**", "/webjars/**", "/index/**", "/", "/login").permitAll()
-				.antMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated().and().formLogin()
-				.loginPage("/login").usernameParameter("username").passwordParameter("senha").failureUrl("/login/error")
-				.permitAll().defaultSuccessUrl("/index").permitAll();
+		.authorizeRequests()
+		.antMatchers("/css/**", "/imgs/**", "/icons/**","/js/**", "/webjars/**", "/index/**", "/", "/login").permitAll()
+		.antMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated().and().formLogin()
+		.loginPage("/login").usernameParameter("username").passwordParameter("senha").failureUrl("/login/error")
+		.permitAll().defaultSuccessUrl("/index").permitAll().and().logout().logoutUrl("/logout").logoutSuccessUrl("/login?logout").invalidateHttpSession(true).deleteCookies("JSESSIONID");
 
 	}
 

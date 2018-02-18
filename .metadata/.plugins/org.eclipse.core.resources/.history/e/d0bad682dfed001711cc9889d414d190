@@ -1,7 +1,0 @@
-package com.portfolio.config;
-
-public class SecurityConstants {
-
-	public static final String SCRET = "Joselito";
-	
-}

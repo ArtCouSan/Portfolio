@@ -1,7 +1,0 @@
-package com.portfolio.entity;
-
-import java.io.Serializable;
-
-public class Dados implements Serializable{
-
-}
